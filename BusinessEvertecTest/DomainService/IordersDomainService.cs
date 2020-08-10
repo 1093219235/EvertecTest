@@ -13,8 +13,8 @@ namespace BusinessEvertecTest.DomainService
     {
         ordersDTO GetById(int id);
         List<ordersDTO> Get();
-        orders Create(orders order);
-        orders update(orders order);
+        ordersDTO Create(ordersDTO order);
+        ordersDTO update(ordersDTO order);
         List<ordersDTO> GetByUser(string user_email);
     }
 }

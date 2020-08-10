@@ -37,14 +37,14 @@ namespace BusinessEvertecTest.DomainService
             var ordersDto = orders.Map();
             return ordersDto;
         }
-        public orders Create(orders order)
+        public ordersDTO Create(ordersDTO order)
         {
-            _ordersRepository.Create(order);
+            order=_ordersRepository.Create(order.Map()).Map();
             return order;
         }
-        public orders update(orders order)
+        public ordersDTO update(ordersDTO order)
         {
-            _ordersRepository.update(order);
+            _ordersRepository.update(order.Map());
             return order;
         }
         public List<ordersDTO> GetByUser(string user_email)

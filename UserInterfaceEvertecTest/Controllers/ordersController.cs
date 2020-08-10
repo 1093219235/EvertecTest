@@ -68,7 +68,7 @@ namespace UserInterfaceEvertecTest.Controllers
                 }
                
                 ordersDto.paymentStatus = responsePayment[0];
-                _ordersDomainService.update(ordersDto.Map());
+                _ordersDomainService.update(ordersDto);
                
             }
            
@@ -99,7 +99,7 @@ namespace UserInterfaceEvertecTest.Controllers
             ordersDto.user_email = (string)Session["login"];
             if (ModelState.IsValid)
             {
-               ordersDto = _ordersDomainService.Create(ordersDto.Map()).Map();
+               ordersDto = _ordersDomainService.Create(ordersDto);
                return RedirectToAction("prePay/"+ordersDto.id);
             }
 
@@ -123,7 +123,7 @@ namespace UserInterfaceEvertecTest.Controllers
                 case "REJECTED":
                     ordersDto.status = "CREATED";
                     ordersDto.updated_at = DateTime.Now;
-                    _ordersDomainService.update(ordersDto.Map());
+                    _ordersDomainService.update(ordersDto);
                     break;
                 default:
                     if (ordersDto.paymentStatus == "PENDING")
@@ -154,7 +154,7 @@ namespace UserInterfaceEvertecTest.Controllers
                     ordersDto.transaction_id = responsePaymentService[1];
                     ordersDto.url_payment = responsePaymentService[2];
                     ordersDto.updated_at = DateTime.Now;
-                    _ordersDomainService.update(ordersDto.Map());
+                    _ordersDomainService.update(ordersDto);
                     return Redirect(responsePaymentService[2]);
                 }
              }
