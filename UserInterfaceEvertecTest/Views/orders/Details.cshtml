@@ -1,0 +1,95 @@
+﻿@model BusinessEvertecTest.DTO.ordersDTO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Informacion de Pago
+    </h2>
+
+<div>
+    <h4>Orden</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updated_at)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @switch (Model.paymentStatus)
+    {
+        case "APPROVED":<h5 style="color:forestgreen">Transaccion  finalizada con estado APROBADO</h5> break;
+        case "PENDING": <h5 style="color:orange">Transaccion Pendiente</h5> break;
+        case "REJECTED": <h5 style="color:red">Transaccion rechazada</h5> break;
+        default: <h5 style="color:red"> Transaccion en curso con estado @Model.paymentStatus</h5>break;
+}
+    @if (Model.paymentStatus != "APPROVED" && Model.paymentStatus != "PENDING")
+    {
+        @Html.ActionLink("Continuar Pago", "prePay", new { id = Model.id }, new { @class = "btn btn-success", @style = "color:white" })
+
+    }
+
+
+
+    @Html.ActionLink("Volver a tus ordenes ", "Index", new { }, new { @class = "btn btn-primary", @style = "color:white" })
+</p>

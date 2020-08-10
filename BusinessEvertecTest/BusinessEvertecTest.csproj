@@ -4,16 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{23975BBE-A679-4EF0-8D1A-0486EB61E98B}</ProjectGuid>
+    <ProjectGuid>{010A0A32-CBDA-4DA8-926D-7B83E61D006D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EvertecTest</RootNamespace>
-    <AssemblyName>EvertecTest</AssemblyName>
+    <RootNamespace>BusinessEvertecTest</RootNamespace>
+    <AssemblyName>BusinessEvertecTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,20 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBcontext\ordersContext.cs" />
-    <Compile Include="Entities\login.cs" />
-    <Compile Include="Entities\orders.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DomainService\IloginDomainService.cs" />
+    <Compile Include="DomainService\IordersDomainService.cs" />
+    <Compile Include="DomainService\loginDomainService.cs" />
+    <Compile Include="DomainService\ordersDomainService.cs" />
+    <Compile Include="DTO\loginDTO.cs" />
+    <Compile Include="DTO\Mapping\logMapping.cs" />
+    <Compile Include="DTO\Mapping\ordersMapping.cs" />
+    <Compile Include="DTO\ordersDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IloginRepository.cs" />
-    <Compile Include="Repositories\IordersRepository.cs" />
-    <Compile Include="Repositories\loginRepository.cs" />
-    <Compile Include="Repositories\ordersRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EvertecTest\PersistenceEvertecTest.csproj">
+      <Project>{23975bbe-a679-4ef0-8d1a-0486eb61e98b}</Project>
+      <Name>PersistenceEvertecTest</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
