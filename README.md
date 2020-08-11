@@ -1,8 +1,8 @@
 <h1>EvertecTest  WEBSHOP</h1>
 
 Lo primero que se debe de tener en cuenta es que al descragar el proyecto se debe de limpiar y recompilar la solucion para evitar posibles errores.
-<b>El poryecto esta compilado en .NET Frameworks 4.7.2   y usa Entity Framework 6.0.0 ademas de Unity 5.11.1 para la inyeccion de dependencias </b>
-Dentro del proyecto ya va una base de datos con usuario grabado el cual es elkin683@gmail.com con clave 1093219235 sin embargo la solucion ofrece una opcion para crear usarios adicionales en la seccion crear login, para efectos del ejercisio se puede seleccionar si es un usuario administrador o no (el Administrador ademas de las funciones normales puede ver todas las ordenes de la tienda)
+<b>El proyecto esta compilado en .NET Frameworks 4.7.2   y usa Entity Framework 6.0.0 ademas de Unity 5.11.1 para la inyeccion de dependencias </b>
+Dentro del proyecto se ofrece una opcion para crear usarios  en la seccion crear login, para efectos del ejercisio se puede seleccionar si es un usuario administrador o no (el Administrador ademas de las funciones normales puede ver todas las ordenes de la tienda)
 
 <h2>Estrucura del proyecto</h2>
 La solucion esta compuesta por 3 capas:<br>
